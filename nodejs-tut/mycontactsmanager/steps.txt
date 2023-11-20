@@ -1,0 +1,67 @@
+blank directory creation
+npm init
+installing express, -D nodemon, and in package.json changing script 
+dev: nodemon server.js & start:node server.js
+installing dotenv 
+
+
+server.js{
+    creating new server
+    calling express creating app, creating port and listen to it.
+    dotenv- importing it in server.js with config() method
+    defining port 
+    { first create contactRoutes,js below shown then using middleware to access contactRoutes.js
+      app.use("/api/contacts"), require("path of contactRoutes.js")}
+    now create a controller folder and contactController.js
+
+    {
+        now creating middleware to combat html response by error  so first create errorHandler file
+         then use here 
+        app.use(errorHandler);
+    }
+    
+    
+}
+
+
+routes/contactRoutes.js{
+    all routes will be here seperately
+    import express  create app oject
+    import router= express.Router()
+    router.route("/").get(req,res){
+        res.status(200).json({message: "Get all Contacts"})
+    }
+    create similarly for put post delete method routes here with indicator :id
+    then module.exports= router
+
+    create middleware for getting data from client 
+    app.use(express.json());
+    now adding error handling in controller.
+}
+
+controller/contactController.js-{
+    all routing logic will be here like below and will be import and called in contactRoutes
+    const updateContacts=(req, res) => {
+    res.status(200).json({ message: `update contacts for ${req.params.id}` });
+    };module.exports={getContacts,createContacts,updateContacts......}
+
+    now we have to interact with mongo db which return promises so need to declare async functions.
+    ex const getContacts=async(req,res).....
+    now it requires try catch block but we can use a middleware "express-async-handler"
+    now just import in const asyncHandler =require("express.....") and change async to asyncHandler
+    const getContacts=asyncHandler(req,res).....
+}
+
+
+middleware/errorHandler.js-{
+    creating middleware errorHanlder checking status code then giving response as per switch case of status code.
+    import constants
+    then use in switch case constant.NOTFOUND..
+}
+
+constant.js{
+    defining all error in objects.
+    and exporting
+}
+
+

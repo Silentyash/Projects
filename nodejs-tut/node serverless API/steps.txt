@@ -1,0 +1,38 @@
+{
+    AUTH-{
+        Login
+}
+
+    User-{
+    Register ,
+    Update,
+    Delete
+}
+
+    Product-{
+    Create,
+    Update,
+    Delete,
+    Read,
+}
+
+    Order-{
+    Create,
+    Update,
+    Delete,
+    Read.
+    Read all for logged in user
+}
+
+    Cart-{
+    Create,
+    Update,
+    Delete,
+    Read.
+    Read all for logged in user
+}
+
+    CheckOut-{
+    Payment
+}
+}
